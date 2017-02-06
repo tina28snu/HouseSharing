@@ -1,0 +1,53 @@
+﻿@model IEnumerable<HouseSharing.Models.Bien>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="tableIndex">
+    <tr>
+        <th>
+            Category
+        </th>
+        <th>
+            Photo Principale
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            Price/Night
+        </th>
+        <th>Details</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                <img src="~/Content/Photos/@item.Photos.FirstOrDefault().Name" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerNight)
+            </td>
+            <td>
+                <a href="">Details</a>
+            </td>
+        </tr>
+    }
+
+</table>

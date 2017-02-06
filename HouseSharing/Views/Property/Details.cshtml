@@ -1,0 +1,86 @@
+﻿@model HouseSharing.Models.Bien
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div style="width:80vw; margin: auto;">
+    <img style="width:100%; height:auto;" src="~/Content/Photos/@Model.Photos.FirstOrDefault().Name" /> <br /><br />
+
+</div>
+
+<p style="margin-left:9vw; margin-right: 9vw;">
+    <strong>@Html.DisplayFor(modelItem => Model.Category.Name)</strong> <br />
+    Adresse: @Html.DisplayFor(modelItem => Model.Adresse),
+    @Html.DisplayFor(modelItem => Model.City),
+    @Html.DisplayFor(modelItem => Model.Country.Name)
+</p>
+
+<table style="margin-left:9vw; margin-right: 9vw;" class="detailsBien">
+    <tr>
+        <td class="description">
+            @Html.DisplayFor(modelItem => Model.Description) <br /><br />
+            @foreach (var item in @Model.Photos)
+            {
+                <img style="width:18vw; height:auto;" src="~/Content/Photos/@item.Name" />
+            }
+        </td>
+
+        <td class="options">
+            <strong>Prix: @Html.DisplayFor(modelItem => Model.PricePerNight) euro</strong> <br /><br />
+
+
+            @if (Model.Option.Surface != 0)
+            {
+                <p>Surface: @Model.Option.Surface</p>
+            }
+            @if (Model.Option.Rooms != 0)
+            {
+                <p>Rooms: @Model.Option.Rooms</p>
+            }
+            @if (Model.Option.Bathrooms != 0)
+            {
+                <p>Bathrooms: @Model.Option.Bathrooms</p>
+            }
+            <br />
+            @if (Model.Option.BabyBed)
+            {
+                <p>@Html.DisplayFor(modelItem => Model.Option.BabyBed) Baby Bed </p>
+            }
+            @if (Model.Option.DishWasher)
+            {
+                <p>@Html.DisplayFor(modelItem => Model.Option.DishWasher) Dish Washer </p>
+            }
+            @if (Model.Option.Garage)
+            {
+                <p>@Html.DisplayFor(modelItem => Model.Option.Garage) Garage</p>
+            }
+            @if (Model.Option.Garden)
+            {
+                <p>@Html.DisplayFor(modelItem => Model.Option.Garden) Garden</p>
+            }
+            @if (Model.Option.Terrace)
+            {
+                <p>@Html.DisplayFor(modelItem => Model.Option.Terrace) Terrace</p>
+            }
+            @if (Model.Option.WashingMachine)
+            {
+                <p>@Html.DisplayFor(modelItem => Model.Option.WashingMachine) Washing Machine</p>
+            }
+            
+            <br /><br />
+            
+            <input style="margin-left: 2vw; background-color: aquamarine;" type="submit" name="submit" value="Rent" />
+
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+

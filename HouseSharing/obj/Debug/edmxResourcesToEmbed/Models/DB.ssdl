@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HouseSharingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adresse" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="255" />
+    <Property Name="ZipCode" Type="int" />
+    <Property Name="PricePerNight" Type="int" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="OptionID" Type="int" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Options">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surface" Type="int" Nullable="false" />
+    <Property Name="Rooms" Type="int" Nullable="false" />
+    <Property Name="Bathrooms" Type="int" Nullable="false" />
+    <Property Name="Garage" Type="bit" Nullable="false" />
+    <Property Name="Garden" Type="bit" Nullable="false" />
+    <Property Name="Terrace" Type="bit" Nullable="false" />
+    <Property Name="WashingMachine" Type="bit" Nullable="false" />
+    <Property Name="DishWasher" Type="bit" Nullable="false" />
+    <Property Name="BabyBed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="BienID" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" />
+    <Property Name="Adresse" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="255" />
+    <Property Name="ZipCode" Type="int" />
+    <Property Name="Telephone" Type="varchar" MaxLength="30" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="Login" Type="varchar" MaxLength="15" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="CountryID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Bien__CategoryID__1DE57479">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Bien" Type="Self.Bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bien">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bien__CountryID__1CF15040">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Bien" Type="Self.Bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bien">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bien__OptionID__6E01572D">
+    <End Role="Options" Type="Self.Options" Multiplicity="0..1" />
+    <End Role="Bien" Type="Self.Bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Options">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bien">
+        <PropertyRef Name="OptionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bien__UserID__38996AB5">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Bien" Type="Self.Bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bien">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Photo__BienID__20C1E124">
+    <End Role="Bien" Type="Self.Bien" Multiplicity="0..1" />
+    <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bien">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="BienID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__CountryID__1920BF5C">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HouseSharingModelStoreContainer">
+    <EntitySet Name="Bien" EntityType="Self.Bien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Options" EntityType="Self.Options" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Bien__CategoryID__1DE57479" Association="Self.FK__Bien__CategoryID__1DE57479">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Bien" EntitySet="Bien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bien__CountryID__1CF15040" Association="Self.FK__Bien__CountryID__1CF15040">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Bien" EntitySet="Bien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bien__OptionID__6E01572D" Association="Self.FK__Bien__OptionID__6E01572D">
+      <End Role="Options" EntitySet="Options" />
+      <End Role="Bien" EntitySet="Bien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bien__UserID__38996AB5" Association="Self.FK__Bien__UserID__38996AB5">
+      <End Role="User" EntitySet="User" />
+      <End Role="Bien" EntitySet="Bien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Photo__BienID__20C1E124" Association="Self.FK__Photo__BienID__20C1E124">
+      <End Role="Bien" EntitySet="Bien" />
+      <End Role="Photo" EntitySet="Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__CountryID__1920BF5C" Association="Self.FK__User__CountryID__1920BF5C">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

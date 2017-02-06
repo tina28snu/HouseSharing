@@ -1,0 +1,107 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+#userForm {
+    border-collapse: collapse;
+    margin-left: 5vw;
+}
+
+#userForm td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1vh 2vw;
+    border-bottom: 1px solid grey;
+}
+
+#userForm th {
+    padding: 1vh 2vw;
+    border-bottom: 1px solid grey;
+}
+
+#userForm .orBetween {
+    padding: 0 7vw;
+}
+
+#userForm .inputSubmit {
+    margin-top: 2vh;
+}
+
+.alertConnectOrLogin {
+    margin-left: 4.9vw;
+    margin-right: -3.7vw;
+}
+
+#userForm  .formLabel {
+    width: 20vw;
+    text-align: left;
+}
+
+#updateUser {
+    border-collapse: collapse;
+    margin-left: 5vw;
+}
+
+#updateUser td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1vh 2vw;
+    border-bottom: 1px solid grey;
+}
+
+.tableIndex {
+    border-collapse: collapse;
+    margin-left: 5vw;
+}
+
+.tableIndex td {
+    width: 10vw;
+    height: 10vw;
+    text-align: center;
+    padding: 1vh 2vw;
+    border-bottom: 1px solid grey;
+}
+
+.tableIndex th {
+    text-align: center;
+    padding: 1vh 2vw;
+    border-bottom: 1px solid grey;
+}
+
+.tableIndex img {
+    width: 10vw;
+    height: 10vw;
+}
+
+.detailsBien {
+    border-collapse: collapse;
+    margin: 2vw 0 0 0;
+}
+
+.detailsBien .options {
+    width: 20vw;
+    padding-left: 10vw;
+    vertical-align: top;
+}

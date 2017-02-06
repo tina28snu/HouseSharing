@@ -1,0 +1,74 @@
+﻿@model HouseSharing.Models.View.Search
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Search</h2>
+
+<div style="margin-left:35vw;">
+    <form action="@Url.Action("Index", "Search")" method="post">
+        <strong>Country</strong>
+        <select name="CountryID" class="form-control">
+            @foreach (var item in Model.Countries) {<option value="@item.ID">@item.Name</option>}
+        </select>
+
+
+    <br />
+        <strong>Category</strong>
+        <select name="CategoryID" class="form-control">
+            @foreach (var item in Model.Categories) {<option value="@item.ID">@item.Name</option>}
+        </select>
+
+    <br />
+        <strong>Price</strong> <br />
+        Between <input type="text" name="priceMin" value="priceMin" /> and <input type="text" name="priceMax" value="priceMax" />
+
+    <br /> <br />
+        <strong>Number Rooms</strong> <br />
+        Between <input type="text" name="roomsMin" value="roomsMin" /> and <input type="text" name="roomsMax" value="roomsMax" />
+
+    <br /> <br />
+        <strong>Options</strong>
+        <div class="form-group">
+            Baby Bed
+                @Html.CheckBoxFor(model => model.BabyBed, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BabyBed, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            Dish Washer
+                @Html.CheckBoxFor(model => model.DishWasher, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DishWasher, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            Garage
+                @Html.CheckBoxFor(model => model.Garage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Garage, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            Garden
+                @Html.CheckBoxFor(model => model.Garden, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Garden, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            Terrace
+                @Html.CheckBoxFor(model => model.Terrace, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Terrace, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            Washing Machine
+                @Html.CheckBoxFor(model => model.WashingMachine, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WashingMachine, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <button>Search</button>
+    </form>
+
+    <br /><hr /><br />
+
+</div>

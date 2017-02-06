@@ -1,0 +1,173 @@
+﻿@model HouseSharing.Models.Bien
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>New Property</h2>
+
+@using (Html.BeginForm("Index", "Property", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+
+    <div style="margin-left:30vw;" class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Country.Name, "Country", htmlAttributes: new { @class = "control-label col-md-2 formLabel" })
+            <div class="col-md-10 inputForm">
+                <select name="CountryID" class="form-control">
+                    @foreach (var item in Model.Countries)
+                    {
+                    <option value="@item.ID">@item.Name</option>}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category.Name, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 inputForm">
+                <select name="CategoryID" class="form-control">
+                    @foreach (var item in Model.Categories)
+                    {
+                    <option value="@item.ID">@item.Name</option>}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.Surface, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" name="Option.Surface" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Option.Surface, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.Rooms, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" name="Option.Rooms" />
+                @Html.ValidationMessageFor(model => model.Option.Rooms, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.Bathrooms, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" name="Option.Bathrooms" />
+                @Html.ValidationMessageFor(model => model.Option.Bathrooms, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.BabyBed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Option.BabyBed)
+                @Html.ValidationMessageFor(model => model.Option.BabyBed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.DishWasher, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Option.DishWasher)
+                @Html.ValidationMessageFor(model => model.Option.DishWasher, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.Garage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Option.Garage)
+                @Html.ValidationMessageFor(model => model.Option.Garage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.Garden, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Option.Garden)
+                @Html.ValidationMessageFor(model => model.Option.Garden, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.Terrace, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Option.Terrace)
+                @Html.ValidationMessageFor(model => model.Option.Terrace, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Option.WashingMachine, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Option.WashingMachine)
+                @Html.ValidationMessageFor(model => model.Option.WashingMachine, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PricePerNight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PricePerNight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PricePerNight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group addPhotos">
+            @Html.LabelFor(model => model.Photos, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="uploads" />
+                @Html.ValidationMessageFor(model => model.Photos, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div id="buttonAdd"><button id="addPhoto" type="button">Add photo</button></div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+<script>
+    $("#addPhoto").click(function (e) {
+        $(".addPhotos:first").clone().insertBefore("#addPhoto");
+    });
+</script>
+}

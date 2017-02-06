@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Profil";
+}
+@{HouseSharing.Models.User u = HouseSharing.Infra.Utils.ConnectedUSer;}
+
+<h2>Profil</h2>
+
+<table style="margin-left:25vw;" id="updateUser">
+    <tr>
+        <td>Name</td>
+        <td>@u.FirstName @u.LastName</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Adresse</td>
+        <td>@u.Adresse, @u.City, @u.ZipCode, @u.Country.Name</td>
+        <td>
+            <form action="~/User/ChangeAdresse" method="post">
+                <br />
+                <strong>Change your Adresse:</strong><br />
+                Rue and Number: <input type="text" name="Adresse" id="Adresse" /><br />
+                City: <input type="text" name="City" id="City" /><br />
+                Zip Code: <input type="text" name="ZipCode" id="ZipCode" /><br />
+                Country: <select name="Country" class="form-control">
+                    @foreach (var item in Model.Countries)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select><br />
+                <input type="submit" value="Submit">
+            </form>
+            <div class="alert alert-danger">@ViewBag.ErrLog</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Phone number</td>
+        <td>@u.Telephone</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Email Adresse</td>
+        <td>@u.Email</td>
+        <td>
+            <form action="~/User/ChangeEmail" method="post">
+                <br />
+                <strong>Change your Email Adresse:</strong><br />
+                <input type="text" name="Email" id="Email" /><br />
+                <input type="submit" value="Submit">
+            </form>
+            <div class="alert alert-danger">@ViewBag.ErrLog</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Login</td>
+        <td>@u.Login</td>
+        <td>
+            <form action="~/User/ChangeLogin" method="post">
+                <br />
+                <strong>Change your Login:</strong><br />
+                <input type="text" name="Login" id="Login" /><br />
+                <input type="submit" value="Submit">
+            </form>
+            <div class="alert alert-danger">@ViewBag.ErrLog</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>********</td>
+        <td>
+            <form action="~/User/ChangePassword" method="post">
+                <br />
+                <strong>Change your Password:</strong><br />
+                New Password: <input type="text" name="NewPassword" id="NewPassword" /><br />
+                Old Password: <input type="text" name="OldPassword" id="OldPassword" /><br />
+                <input type="submit" value="Submit">
+            </form>
+            <div class="alert alert-danger">@ViewBag.ErrLog</div>
+        </td>
+    </tr>
+</table>
