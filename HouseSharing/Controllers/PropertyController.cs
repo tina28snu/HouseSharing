@@ -43,6 +43,7 @@ namespace HouseSharing.Controllers
 
         public ActionResult BienCreated()
         {
+            //ajout de commentaire
             return View();
         }
 
