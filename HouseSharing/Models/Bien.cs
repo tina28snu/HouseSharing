@@ -32,8 +32,8 @@ namespace HouseSharing.Models
     
         public virtual Category Category { get; set; }
         public virtual Country Country { get; set; }
-        public virtual Option Option { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<Photo> Photos { get; set; }
+        public virtual Option Option { get; set; }
     }
 }

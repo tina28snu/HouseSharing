@@ -152,7 +152,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HouseSharingEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="HouseSharingEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Biens" EntityType="Self.Bien" />
     <EntitySet Name="Categories" EntityType="Self.Category" />
     <EntitySet Name="Countries" EntityType="Self.Country" />

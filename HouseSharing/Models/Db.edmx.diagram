@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="326d161a4a6446e096ccf08899c8596d" Name="Diagram1">
+      <Diagram DiagramId="2e054fca37444ac4b0ea7eb6790e3044" Name="Diagram1">
         <EntityTypeShape EntityType="HouseSharingModel.Bien" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseSharingModel.Category" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseSharingModel.Country" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HouseSharingModel.Option" Width="1.5" PointX="8.625" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseSharingModel.Option" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseSharingModel.Photo" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseSharingModel.User" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
         <AssociationConnector Association="HouseSharingModel.FK__Bien__CategoryID__1DE57479" ManuallyRouted="false" />
         <AssociationConnector Association="HouseSharingModel.FK__Bien__CountryID__1CF15040" ManuallyRouted="false" />
-        <AssociationConnector Association="HouseSharingModel.FK__Bien__OptionID__6E01572D" ManuallyRouted="false" />
         <AssociationConnector Association="HouseSharingModel.FK__Bien__UserID__38996AB5" ManuallyRouted="false" />
         <AssociationConnector Association="HouseSharingModel.FK__Photo__BienID__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseSharingModel.FK_Bien_Option" ManuallyRouted="false" />
         <AssociationConnector Association="HouseSharingModel.FK__User__CountryID__1920BF5C" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

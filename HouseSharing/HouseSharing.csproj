@@ -119,21 +119,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PropertyController.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Infra\Hashing.cs" />
-    <Compile Include="Infra\Utils.cs" />
     <Compile Include="Models\Bien.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PropertyController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Country.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
@@ -152,46 +147,50 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Db.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infra\Hashing.cs" />
+    <Compile Include="Infra\Utils.cs" />
+    <Compile Include="Models\PartialClasses\Bien.cs" />
+    <Compile Include="Models\PartialClasses\User.cs" />
+    <Compile Include="Models\View\Search.cs" />
     <Compile Include="Models\Option.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PartialClasses\Bien.cs" />
-    <Compile Include="Models\PartialClasses\User.cs" />
     <Compile Include="Models\Photo.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\View\Search.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Models\Db.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Db.edmx</DependentUpon>
+      <LastGenOutput>Db.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Db.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Db.edmx</DependentUpon>
+      <LastGenOutput>Db.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Db.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Db.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Db.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Db.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Db.edmx</DependentUpon>
-      <LastGenOutput>Db.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\Db.edmx.diagram">
       <DependentUpon>Db.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Db.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Db.edmx</DependentUpon>
-      <LastGenOutput>Db.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
